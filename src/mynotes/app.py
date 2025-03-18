@@ -1,10 +1,12 @@
-from database import get_user
-from crypto import generate_token, verify_and_decrypt_token
-from flask import Flask, make_response, render_template, request, redirect, url_for, session, flash
-import os
 import sys
+import os
+from flask import Flask, make_response, render_template, request, redirect, url_for, session, flash
+
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), '../shared')))
+
+from database import get_user
+from crypto import generate_token, verify_and_decrypt_token
 
 app = Flask(__name__)
 # Session key used to encrypt the session data (done by Flask)
