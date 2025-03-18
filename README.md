@@ -1,6 +1,6 @@
 # SSO Project
 
-This project implements a Single Sign-On (SSO) system with two Flask-based web services: **MyImages** and **MyNotes**. The system allows users to authenticate once and access both services concurrently using a shared, cryptographically secure token.
+This project implements a Single Sign-On (SSO) system with two Flask-based web services: **MyImages** and **MyNotes**.
 
 ## Project Structure
 - `src/`
