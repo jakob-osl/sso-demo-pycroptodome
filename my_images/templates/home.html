@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}MyImages{% endblock %}
+
+{% block content %}
+    {% if 'username' in session %}
+        <div class="welcome-message">
+            <h2>Welcome, {{ session['username'] }}! Here are your images:</h2>
+        </div>
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="{{ url_for('static', filename='images/sunset.jpg') }}" alt="Image 1">
+                <h3>Sunset</h3>
+                <p>A beautiful sunset in Guatemala.</p>
+            </div>
+            <div class="image-item">
+                <img src="{{ url_for('static', filename='images/mountains.jpg') }}" alt="Image 2">
+                <h3>Mountains</h3>
+                <p>A breathtaking view of the Mount Everest.</p>
+            </div>
+            <div class="image-item">
+                <img src="{{ url_for('static', filename='images/city.jpg') }}" alt="Image 3">
+                <h3>City view</h3>
+                <p>Taken in Innsbruck at night.</p>
+            </div>
+        </div>
+    {% else %}
+        <div class="welcome-message">
+            <h2>Willkommen bei MyImages!</h2>
+            <p>Bitte <a href="{{ url_for('login') }}">logge dich ein</a>, um deine Bilder zu sehen.</p>
+        </div>
+    {% endif %}
+{% endblock %}

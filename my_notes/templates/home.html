@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}MyNotes{% endblock %}
+
+{% block content %}
+    {% if 'username' in session %}
+        <div class="welcome-message">
+            <h2>Welcome, {{ session['username'] }}! Here are your notes:</h2>
+        </div>
+        <div class="notes-container">
+            <div class="note-card">
+                <h3>Shopping list</h3>
+                <p>Milk, Bread, Eggs, Butter</p>
+            </div>
+            <div class="note-card">
+                <h3>Project idea</h3>
+                <p>Write a book</p>
+            </div>
+            <div class="note-card">
+                <h3>Reminder</h3>
+                <p>Meeting at 14:00 tomorrow. Don't forget!</p>
+            </div>
+        </div>
+    {% else %}
+        <div class="welcome-message">
+            <h2>Welcome at MyNotes!</h2>
+            <p>Please <a href="{{ url_for('login') }}">login</a>, to see your notes.</p>
+        </div>
+    {% endif %}
+{% endblock %}
